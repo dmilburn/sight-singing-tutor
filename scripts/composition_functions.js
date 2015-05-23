@@ -9,7 +9,7 @@ function makeLineRhythmsFirst(beatsPerMeasure, numMeasures, level, highestScaleD
     //this function will make rhythms and melody notes separately, as my current system does.
     //we'll make separate high level functions for the other way around and different combos
     console.log(open_or_closed);
-    var rhythms = generateRhythms(beatsPerMeasure, numMeasures, level)
+    var rhythms = generateRhythmsQuarterNotesOnly(beatsPerMeasure, numMeasures, level)
     var length = findLength(rhythms)
     if (level === 3){
         var randomMelody = makeRandomMelody(undefined, length, highestScaleDegree, open_or_closed);
@@ -44,6 +44,20 @@ function generateRhythms(beatsPerMeasure, numMeasures, level){
     //what to put in last bar?? right now: whole bar
     rhythms.push([durationToVex(beatsPerMeasure, beatsPerMeasure)]);
     //rhythms.push([durationToVex(fillLastMeasure(beatsPerMeasure, level), beatsPerMeasure)])
+    return rhythms;
+}
+
+function generateRhythmsQuarterNotesOnly(beatsPerMeasure, numMeasures){
+    var rhythms = [];
+    for (var i=0; i<numMeasures; i += 1){
+        rhythms.push([]);
+        var beat = 0;
+        while (beat < beatsPerMeasure) {
+            var next = 1;
+            rhythms[i].push(durationToVex(next, beatsPerMeasure));
+            beat += next;
+        }
+    }
     return rhythms;
 }
 
