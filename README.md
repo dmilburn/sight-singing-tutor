@@ -1,5 +1,1 @@
-# Sightreading-vexflow, a piano sightreading website/app written with javascript and the vexflow library
-
-See the current website hosted on dropbox [here.](https://dl.dropboxusercontent.com/u/95890750/vexflow_sightreading/home.html)
-
-Check back to updated readme soon
+This app is a work in progress. It was forked from spo587's Site Reading app during the May 2015 monthly music hackathon at Spotify for use in a site singing tutor app.
